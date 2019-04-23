@@ -3,10 +3,10 @@ kind: DaemonSet
 metadata:
   name: cifs-flex-ds
 spec:
+  selector:
+    matchLabels:
+      app: cifs-flex-deploy
   template:
-    selector:
-      matchLabels:
-        name: cifs-flex-deploy
     metadata:
       name: cifs-flex-deploy
       labels:

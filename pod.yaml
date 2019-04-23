@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox 
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: test
+      mountPath: /data
+  volumes:
+  - name: test
+    flexVolume:
+      driver: "fstabdemo/cifs"
+      fsType: "cifs"
+      secretRef:
+        name: "cifs-secret-001"
+      options:
+        networkPath: "//34.248.205.56/publicshare/pv-03"
+        mountOptions: "dir_mode=0755,file_mode=0655,noperm"
