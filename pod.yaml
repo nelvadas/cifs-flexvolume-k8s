@@ -16,7 +16,7 @@ spec:
   volumes:
   - name: test
     flexVolume:
-      driver: "fstabdemo/cifs"
+      driver: "fstab/cifs"
       fsType: "cifs"
       secretRef:
         name: "cifs-secret-001"
