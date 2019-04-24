@@ -127,7 +127,21 @@ $ kubectl exec -it busybox -n  cifs-demo-ns -- ls /data
 toto.txt
 ```
 
+On the host where the container is running
+```
+kubectl get pods -o wide -n cifs-demo-ns
+NAME      READY     STATUS    RESTARTS   AGE       IP               NODE                                       NOMINATED NODE
+busybox   1/1       Running   0          11m       192.168.94.133   ip-10-22-9-29.eu-west-1.compute.internal   <none>
+```
+Check the existing CIFS mounts
+```
+ubuntu@ip-10-22-9-29:~$ findmnt | grep cifs
+├─/var/lib/kubelet/pods/fdf3313c-6679-11e9-8cb8-0242ac11000b/volumes/fstab~cifs/test                                    //34.248.205.56/publicshare/pv-03[/pv-03]                                                              cifs       rw,relatime,vers=1.0,cache=strict,username=usr1,domain=SAMBA_TEST,uid=0,noforceuid,gid=0,noforcegid,addr=34.248.205.56,unix,posixpaths,serverino,mapposix,acl,noperm,rsize=1048576,wsize=65536,echo_interval=60,actimeo=1
+ubuntu@ip-10-22-9-29:~$
+```
+
+
 ## Futher Reading
 
-[Migrating Flexvolume to CSI Driver](https://github.com/kubernetes-csi/drivers/tree/master/pkg/flexadapter)
-[CSI Driver Developper Documentation ]( https://kubernetes-csi.github.io/docs/)
+* [Migrating Flexvolume to CSI Driver](https://github.com/kubernetes-csi/drivers/tree/master/pkg/flexadapter)
+* [CSI Driver Developper Documentation ]( https://kubernetes-csi.github.io/docs/)
