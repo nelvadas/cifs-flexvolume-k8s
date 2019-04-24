@@ -95,12 +95,14 @@ Create a PV pointing on the private share
 
 ```
 kubectl create -f cifs-flex-pv002.yml
-$ kubectl get pvc -n cifs-demo-ns
-kubectl create -f cifs-flex-pvc002.yml -n cifs-demo-ns
-
 ```
 
-You can see the cifs-flexvol-pvc002` PVC is automatically bound to  cifs-flexvol-pv002` PV
+Create the associated PVC
+```
+kubectl create -f cifs-flex-pvc002.yml -n cifs-demo-ns
+```
+
+You can see the cifs-flexvol-pvc002` PVC is  created and automatically bound to  cifs-flexvol-pv002` PV.
 
 
 ```
