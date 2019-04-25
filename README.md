@@ -38,7 +38,7 @@ ansible-playbook  -i hosts  create-samba-server.yml  -vv
 The playbook will create 3 shares
 - `//34.248.205.56/publicshare`
 - `//34.248.205.56/restrictedshare`
-- `//34.248.205.56/privateshare
+- `//34.248.205.56/privateshare`
 
 and a limited set of users.
 
