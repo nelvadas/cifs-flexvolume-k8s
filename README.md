@@ -35,6 +35,13 @@ ansible-playbook  -i hosts  create-samba-server.yml  -vv
 
 ```
 
+The playbook will create 3 shares
+- `//34.248.205.56/publicshare`
+- `//34.248.205.56/restrictedshare`
+- `//34.248.205.56/privateshare
+
+and a limited set of users.
+
 
 ## Building the cifs-flexvol-installer docker image
 
@@ -59,7 +66,7 @@ NAME           DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELEC
 cifs-flex-ds   3         3         3         3            3           <none>          19h
 ```
 
-In order to be able to run this drive on master or Docker Universal Control Plane Manager the pod should tolerate the following taints,
+In order to be able to run this DaemonSet on master or Docker Universal Control Plane Manager the pod should tolerate the following taints,
 
 ```
 $ kubectl get ds/cifs-flex-ds -o json | jq  ".spec.template.spec.tolerations"
