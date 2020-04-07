@@ -45,6 +45,8 @@ and a limited set of users.
 
 ## Building the cifs-flexvol-installer docker image
 
+The docker image build here rely on the [fstab/cifs](https://raw.githubusercontent.com/fstab/cifs/master/cifs) script.
+
 ```
 $ docker build --no-cache -t nelvadas/cifs-flexvol-installer:1.0.1 .
 ..
